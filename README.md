@@ -34,3 +34,4 @@ $ npm run build
 - [ ] Node 支持的版本
 - [ ] Node 调试方法添加
 - [ ] .babelrc修改
+- [ ] 代码自动检测

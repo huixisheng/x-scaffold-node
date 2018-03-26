@@ -2,9 +2,9 @@
   "name": "x-scaffold-node",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "可以用vue初始的类库的脚手架",
+  "description": "可以用vue初始化的Node库的脚手架",
   "scripts": {},
   "devDependencies": {
-    "vue-cli": "^2.8.2"
+    "vue-cli": "^2.9.3"
   }
 }
