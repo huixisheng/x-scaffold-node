@@ -1,4 +1,4 @@
-import { add } from '../src/index';
+import { add } from '../index';
 
 const { expect } = require('chai');
 

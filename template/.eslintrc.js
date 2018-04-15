@@ -14,7 +14,7 @@ module.exports = {
     mocha: true,
   },
   globals: {
-    CONFIG: true,
+
   },
   settings: {
 
