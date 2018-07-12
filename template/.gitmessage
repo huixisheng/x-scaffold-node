@@ -19,7 +19,6 @@
 #    ci: 更改我们的持续集成文件和脚本（范围：Jenkins Travis）
 #
 # <scope提交代码影响范围。如果存在多个用、分割>
-#    ops、h5、(api|apiApp)、mhome、library、config(配置修改)、scripts、b2b、shop、apiClock、apiDocs、
 #
 # https://segmentfault.com/a/1190000004282514
 # https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines
