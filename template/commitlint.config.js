@@ -35,6 +35,7 @@ module.exports = {
  * - https://mrzhang123.github.io/2017/10/18/git-commint-norm/
  * - https://www.phodal.com/blog/how-to-write-a-better-git-commit-message/
  * - http://marionebl.github.io/commitlint/#/reference-rules
+ * - https://zhuanlan.zhihu.com/p/34223150
  */
 /**
 Must be one of the following:

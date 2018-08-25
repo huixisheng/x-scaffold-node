@@ -9,14 +9,13 @@
     "dev": "npm run test:watch",
     "build": "babel src/ --out-dir dist",
     "eslint:diff": "node_modules/eslint/bin/eslint.js --color $(git diff-index HEAD --name-only --diff-filter ACMR |grep '\\.\\(jsx\\|es6\\|js\\|vue\\)$')",
-    "eslint:fix": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --fix --color --max-warnings 10 --ext .js,.vue static src build config test fis-conf.js",
-    "eslint": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --color --max-warnings 10 --ext .js,.vue static src build config test fis-conf.js",
+    "eslint:fix": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --fix --color --max-warnings 10 --ext .js,.vue src test",
+    "eslint": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --color --max-warnings 10 --ext .js,.vue src test",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "keywords": [],
   "author": "{{author}}",
   "license": "MIT",
-  "dependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "npm run eslint"
@@ -25,24 +24,25 @@
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-angular": "^7.0.1",
-    "babel-core": "^6.0.0",
-    "babel-eslint": "^8.2.2",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
     "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
-    "cross-env": "^5.0.5",
-    "eslint": "^4.18.2",
-    "eslint-config-style-guide": "0.0.6",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.4.0",
+    "eslint-config-style-guide": "0.0.8",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-import-resolver-webpack": "^0.10.1",
-    "eslint-loader": "^2.0.0",
-    "file-loader": "^1.1.11",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "file-loader": "^2.0.0",
     "husky": "^1.0.0-rc.1",
-    "mocha": "^5.0.4",
+    "mocha": "^5.2.0",
     "node-plus-string": "^1.0.1",
-    "x-config-deploy": "^0.0.3"
+    "x-config-deploy": "0.0.4"
   },
   "engines": {
     "node": ">= 4.0.0",

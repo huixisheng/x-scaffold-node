@@ -29,6 +29,12 @@ $ npm run dev
 $ npm run build
 ```
 
+```
+$ git config --global commit.template ./.gitmessage
+$ git config --local commit.template ./.gitmessage
+$ git config --get commit.template
+```
+
 ## TODO  ##
 - [ ] `cnpm`安装的的`node_modules`本地初始化有问题
 - [ ] Node 支持的版本
