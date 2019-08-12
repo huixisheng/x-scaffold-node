@@ -27,5 +27,5 @@ module.exports = {
   "filters": {
     "node_modules/**/*": false
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\nnpm run build\n\nDocumentation can be found at https://github.com/huixisheng/x-scaffold-lib"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\nnpm run build\n\nDocumentation can be found at https://github.com/huixisheng/x-scaffold-node"
 };

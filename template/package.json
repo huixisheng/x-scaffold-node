@@ -4,48 +4,56 @@
   "description": "{{description}}",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm run eslint && ./node_modules/mocha/bin/mocha --require babel-register --timeout 30000",
-    "test:watch": "npm run eslint && ./node_modules/mocha/bin/mocha --require babel-register --watch  --timeout 30000",
+    "test": "npm run lint && ./node_modules/mocha/bin/mocha --require babel-register --timeout 30000",
+    "test:watch": "npm run lint && ./node_modules/mocha/bin/mocha --require babel-register --watch  --timeout 30000",
     "dev": "npm run test:watch",
     "build": "babel src/ --out-dir dist",
-    "eslint:diff": "node_modules/eslint/bin/eslint.js --color $(git diff-index HEAD --name-only --diff-filter ACMR |grep '\\.\\(jsx\\|es6\\|js\\|vue\\)$')",
-    "eslint:fix": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --fix --color --max-warnings 10 --ext .js,.vue src test",
-    "eslint": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --color --max-warnings 10 --ext .js,.vue src test",
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "preinstall": "git config --local commit.template ./.gitmessage",
+    "changelog": "conventional-changelog -p @x-copy/angular -i CHANGELOG.md -s -r 0",
+    "lint:diff": "node_modules/eslint/bin/eslint.js --color $(git diff-index HEAD --name-only --diff-filter ACMR |grep '\\.\\(jsx\\|es6\\|js\\|vue\\)$')",
+    "lint:fix": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --fix --color --max-warnings 10 --ext .js,.vue src test",
+    "lint": "cross-env NODE_ENV=production node_modules/eslint/bin/eslint.js --color --max-warnings 10 --ext .js,.vue src test"
   },
   "keywords": [],
   "author": "{{author}}",
   "license": "MIT",
+  "engines": {
+    "npm": ">=5.2.0",
+    "node": ">=8.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run eslint"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-angular": "^7.0.1",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-angular": "^8.1.0",
+    "@x-copy/conventional-changelog-angular": "^5.0.3",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^10.0.2",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
+    "conventional-changelog-cli": "^2.0.23",
     "cross-env": "^5.2.0",
-    "eslint": "^5.4.0",
+    "eslint": "^6.1.0",
     "eslint-config-style-guide": "0.0.8",
-    "eslint-friendly-formatter": "^4.0.1",
-    "eslint-import-resolver-webpack": "^0.10.1",
-    "eslint-loader": "^2.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "file-loader": "^2.0.0",
-    "husky": "^1.0.0-rc.1",
-    "mocha": "^5.2.0",
-    "node-plus-string": "^1.0.1",
-    "x-config-deploy": "0.0.4"
+    "eslint-plugin-import": "^2.18.2",
+    "file-loader": "^4.2.0",
+    "husky": "^3.0.3",
+    "lint-staged": "^9.2.1",
+    "mocha": "^6.2.0",
+    "node-plus-string": "^1.0.1"
   },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
-  }
+  "dependencies": {}
 }
