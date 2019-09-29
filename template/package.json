@@ -1,13 +1,17 @@
 {
-  "name": "{{name}}",
+  "name": "name",
   "version": "0.0.1",
   "description": "{{description}}",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm run lint && ./node_modules/mocha/bin/mocha --require babel-register --timeout 30000",
-    "test:watch": "npm run lint && ./node_modules/mocha/bin/mocha --require babel-register --watch  --timeout 30000",
+    "test:babel": "npm run lint && ./node_modules/mocha/bin/mocha --require babel-register --timeout 30000",
+    "test:babel:watch": "npm run lint && ./node_modules/mocha/bin/mocha --require babel-register --watch  --timeout 30000",
+    "build:babel": "babel src/ --out-dir dist",
+    "build:ts": "npx tsc",
+    "test": "npm run lint && ./node_modules/mocha/bin/mocha --timeout 30000",
+    "test:watch": "npm run lint && ./node_modules/mocha/bin/mocha --watch  --timeout 30000",
     "dev": "npm run test:watch",
-    "build": "babel src/ --out-dir dist",
+    "start": "nodemon ./src/index.js",
     "preinstall": "git config --local commit.template ./.gitmessage",
     "changelog": "conventional-changelog -p @x-copy/angular -i CHANGELOG.md -s -r 0",
     "lint:diff": "node_modules/eslint/bin/eslint.js --color $(git diff-index HEAD --name-only --diff-filter ACMR |grep '\\.\\(jsx\\|es6\\|js\\|vue\\)$')",
@@ -53,7 +57,12 @@
     "husky": "^3.0.3",
     "lint-staged": "^9.2.1",
     "mocha": "^6.2.0",
-    "node-plus-string": "^1.0.1"
+    "node-plus-string": "^1.0.1",
+    "nodemon": "^1.19.1",
+    "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.4"
+  }
 }
